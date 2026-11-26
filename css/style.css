@@ -1,15 +1,4 @@
 
-/* ========================================
-   Buddy's Jazz Chori
-   Complete Style Sheet
-   Black & Gold Design
-======================================== */
-
-
-/* ========================================
-   1. Reset / Base
-======================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -21,942 +10,536 @@ html {
 }
 
 body {
-    font-family: "Noto Serif JP", serif;
-    background: #0a0a0a;
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 2;
-    overflow-x: hidden;
+    background: #0b0b0b;
+    color: #eee;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.8;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 img {
     display: block;
     max-width: 100%;
-    height: auto;
 }
 
-a {
-    transition: 0.3s;
-}
-
-
-/* ========================================
-   2. Header
-======================================== */
-
+/* HEADER */
 .header {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    min-height: 80px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 60px;
-
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-
-    border-bottom: 1px solid rgba(201, 164, 76, 0.2);
-
     z-index: 1000;
+    background: rgba(0, 0, 0, 0.92);
+    border-bottom: 1px solid rgba(202, 164, 90, 0.35);
+}
+
+.header-inner {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    color: #c9a44c;
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    color: #d6b36a;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.header nav {
+.nav {
     display: flex;
-    align-items: center;
-    gap: 25px;
+    gap: 30px;
 }
 
-.header nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 16px;
+.nav a {
+    color: #eee;
+    font-size: 13px;
     letter-spacing: 1px;
-}
-
-.header nav a:hover {
-    color: #c9a44c;
-}
-
-
-/* ========================================
-   3. Hero
-======================================== */
-
-.hero {
-    position: relative;
-
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-
-    overflow: hidden;
-
-    background-image: url("../img/img4.PNG");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #000000;
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.4);
-
-    z-index: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-
-    top: 90%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 90%;
-    text-align: center;
-
-    z-index: 1;
-}
-
-.hero h1 {
-    color: #c9a44c;
-    font-size: 76px;
-    letter-spacing: 5px;
-}
-
-.hero p {
-    font-size: 25px;
-    margin: 20px 0 40px;
-}
-
-.btn {
-    display: inline-block;
-
-    padding: 15px 45px;
-
-    background: #c9a44c;
-    color: #000000;
-
-    text-decoration: none;
-    border-radius: 30px;
-
-    font-size: 18px;
-    font-weight: bold;
-
     transition: 0.3s;
 }
 
-.btn:hover {
-    background: #ffffff;
+.nav a:hover {
+    color: #d6b36a;
 }
 
-
-/* ========================================
-   4. Common Section
-======================================== */
-
-.section {
-    width: 100%;
-    padding: 100px 10%;
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.title {
-    position: relative;
-
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+        url("../img/img4.PNG") center / cover no-repeat;
+    padding: 100px 20px;
+}
 
-    color: #c9a44c;
-    font-size: 46px;
-    font-weight: bold;
+.hero-content {
+    max-width: 900px;
+}
 
+.hero-subtitle {
+    color: #d6b36a;
+    letter-spacing: 5px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: 1.3;
+    color: #fff;
     letter-spacing: 4px;
+}
+
+.hero-message {
+    margin: 25px 0 35px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.gold-button {
+    display: inline-block;
+    padding: 13px 35px;
+    color: #d6b36a;
+    border: 1px solid #d6b36a;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.gold-button:hover {
+    color: #111;
+    background: #d6b36a;
+}
+
+/* COMMON SECTION */
+.section {
+    padding: 110px 10%;
+    scroll-margin-top: 80px;
+}
+
+.section-heading {
+    text-align: center;
     margin-bottom: 60px;
 }
 
-
-/* ========================================
-   5. About
-======================================== */
-
-.about {
-    display: flex;
-    align-items: center;
-    gap: 60px;
+.section-en {
+    color: #d6b36a;
+    font-size: 14px;
+    letter-spacing: 5px;
 }
 
-.about-image {
-    flex: 1;
-    min-width: 0;
+.section-heading h2 {
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-top: 8px;
+}
+
+.section-heading h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: #d6b36a;
+    margin: 22px auto 0;
+}
+
+/* ABOUT */
+.about {
+    background: #111;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
 .about-image img {
     width: 100%;
-    border-radius: 15px;
+    height: 380px;
+    object-fit: cover;
 }
 
-.about-text {
-    flex: 1;
-    min-width: 0;
-}
-
-.about-text h2 {
-    color: #c9a44c;
-    font-size: 44px;
-    margin-bottom: 30px;
+.about-text h3 {
+    font-size: 25px;
+    color: #d6b36a;
+    margin-bottom: 25px;
 }
 
 .about-text p {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 20px;
 }
 
+/* NEWS */
+.news {
+    background: #0b0b0b;
+}
 
-/* ========================================
-   6. News
-======================================== */
+.news-list {
+    max-width: 950px;
+    margin: auto;
+}
 
-.card-area {
+.news-item {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    gap: 35px;
+    padding: 25px 10px;
+    border-bottom: 1px solid rgba(214,179,106,0.25);
 }
 
-.card {
-    flex: 1 1 280px;
-    max-width: 420px;
-
-    padding: 35px;
-
-    background: #151515;
-    border: 1px solid #c9a44c;
-    border-radius: 15px;
-
-    transition: 0.3s;
+.news-date {
+    color: #d6b36a;
+    min-width: 100px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(201, 164, 76, 0.12);
+.news-item h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
 }
 
-.card h3 {
-    color: #c9a44c;
-    font-size: 23px;
-    margin-bottom: 15px;
+.news-item p {
+    color: #bbb;
+    font-size: 15px;
 }
 
-.card p {
-    font-size: 18px;
+/* EVENT */
+.event {
+    background: #111;
 }
 
-
-/* ========================================
-   7. Event
-======================================== */
-
-#event {
-    position: relative;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 35%,
-            rgba(201, 164, 76, 0.10),
-            transparent 55%
-        ),
-        linear-gradient(
-            180deg,
-            #101010 0%,
-            #080808 100%
-        );
-
-    text-align: center;
-}
-
-/* 上下の装飾ライン */
-
-#event::before,
-#event::after {
-    content: "";
-
-    position: absolute;
-    left: 50%;
-
-    width: 75%;
-    height: 1px;
-
-    transform: translateX(-50%);
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(201, 164, 76, 0.5),
-        transparent
-    );
-}
-
-#event::before {
-    top: 35px;
-}
-
-#event::after {
-    bottom: 35px;
-}
-
-/* イベントタイトル */
-
-#event .title {
-    display: table;
-    margin: 0 auto 65px;
-    padding: 0 35px 18px;
-
-    font-size: 46px;
-    letter-spacing: 8px;
-}
-
-#event .title::after {
-    content: "";
-
-    position: absolute;
-    width: 65px;
-    height: 2px;
-
-    bottom: 0;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: #c9a44c;
-}
-
-/* イベント全体 */
-
-#event .event-box {
-    display: flex;
-    flex-direction: column;
+.event-box {
+    width: 100%;
+    max-width: none;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
     align-items: center;
-
-    width: 100%;
-    max-width: none;
-
-    margin: 0 auto;
-    gap: 42px;
 }
 
-/* 画像フレーム */
-
-#event .event-image {
-    position: relative;
-
-    width: 100%;
-    max-width: none;
-
-    padding: 14px;
-
-    background: linear-gradient(
-        135deg,
-        #d9bd79,
-        #70531f,
-        #d9bd79
-    );
-
-    border-radius: 3px;
-
-    box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.65),
-        0 0 35px rgba(201, 164, 76, 0.12);
-}
-
-#event .event-image::before {
-    content: "";
-
-    position: absolute;
-    inset: 5px;
-
-    border: 1px solid rgba(255, 255, 255, 0.4);
-
-    pointer-events: none;
-    z-index: 1;
-}
-
-#event .event-image img {
+.event-image img {
     width: 100%;
     height: auto;
-
     object-fit: contain;
-    border-radius: 1px;
 }
 
-/* イベント紹介文 */
-
-#event .event-text {
-    width: 100%;
-    max-width: none;
-
-    padding: 35px 30px;
-
-    background: linear-gradient(
-        135deg,
-        #191919,
-        #101010
-    );
-
-    border: 1px solid rgba(201, 164, 76, 0.4);
-    border-radius: 4px;
-
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+.event-text h3 {
+    color: #d6b36a;
+    font-size: 32px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
 }
 
-/* Jazz Live Eventの装飾見出し */
-
-#event .event-text::before {
-    content: "✦ Jazz Live Event ✦";
-
-    display: block;
-
-    color: #c9a44c;
-    font-size: 30px;
-    font-weight: bold;
-
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-}
-
-/* HTML側の旧見出しは非表示 */
-
-#event .event-text h3 {
-    display: none;
-}
-
-#event .event-text p {
-    color: #d0d0d0;
-    font-size: 18px;
+.event-text p {
+    font-size: 17px;
     line-height: 2.2;
 }
 
-
-/* ========================================
-   8. Members
-======================================== */
-
-#members {
-    background:
-        radial-gradient(
-            ellipse at top,
-            rgba(201, 164, 76, 0.07),
-            transparent 55%
-        ),
-        #0a0a0a;
+/* MEMBERS */
+.members {
+    background: #0b0b0b;
 }
 
-/* メンバー紹介の説明文 */
-
-#members .members-intro,
-#members .members-description,
-#members .members-message {
-    position: relative;
-    top: -30px;
-
+.members-intro {
     text-align: center;
-
-    font-size: 19px;
-    line-height: 2;
-
-    margin: 0 auto 40px;
-
-    max-width: 900px;
-}
-
-/* メンバー一覧 */
-
-.member-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 30px;
-
-    width: 100%;
-    max-width: none;
-
-    margin: 0 auto;
-}
-
-/* メンバーカード */
-
-.member-card {
+    font-size: 20px;
     position: relative;
-    overflow: hidden;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 30px;
-
-    background: linear-gradient(
-        135deg,
-        #191919,
-        #101010
-    );
-
-    border: 1px solid rgba(201, 164, 76, 0.55);
-    border-radius: 15px;
-
-    text-align: center;
-
-    transition: 0.3s;
-}
-
-.member-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 12px 30px rgba(201, 164, 76, 0.13);
-}
-
-/* MEMBER表示 */
-
-.member-mark {
-    color: #c9a44c;
-
-    font-size: 14px;
-    letter-spacing: 4px;
-
-    margin-bottom: 15px;
-}
-
-/* メンバー写真 */
-
-.member-photo {
-    display: grid;
-    place-items: center;
-
-    width: 120px;
-    height: 120px;
-
-    margin: 0 auto 20px;
-
-    background: linear-gradient(
-        135deg,
-        #242018,
-        #080808
-    );
-
-    border: 1px solid #c9a44c;
-    border-radius: 50%;
-
-    color: #c9a44c;
-    font-size: 45px;
-
-    overflow: hidden;
-}
-
-.member-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-/* メンバー情報 */
-
-.member-info {
-    width: 100%;
-    padding: 10px;
-}
-
-.member-card h3,
-.member-info h3,
-.member-info h4 {
-    color: #c9a44c;
-    font-size: 25px;
-    margin-bottom: 12px;
-}
-
-.member-card p,
-.member-info p {
-    color: #dddddd;
-    font-size: 17px;
-    line-height: 2;
-    margin-bottom: 12px;
-}
-
-/* 担当パート */
-
-.member-part {
-    color: #c9a44c;
-    font-size: 16px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-/* Piano・Trumpetなどの1名グループ */
-
-.single-member {
-    width: 100%;
-    max-width: none;
-    margin: 0 auto;
-}
-
-.single-member .member-card {
-    width: 100%;
-    max-width: none;
-}
-
-/* グループ単位で使う場合 */
-
-.member-group {
-    width: 100%;
+    top: -25px;
     margin-bottom: 65px;
 }
 
-.member-group-title {
-    color: #c9a44c;
-
-    font-size: 32px;
-    letter-spacing: 4px;
-
+.members-description {
     text-align: center;
-
-    margin-bottom: 30px;
-    padding-bottom: 12px;
-
-    border-bottom: 1px solid rgba(201, 164, 76, 0.5);
+    color: #bbb;
+    margin-bottom: 55px;
 }
 
+.member-category {
+    max-width: 1100px;
+    margin: 0 auto 65px;
+}
 
-/* ========================================
-   9. Gallery
-======================================== */
+.member-category > h3 {
+    text-align: center;
+    color: #d6b36a;
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.member-card {
+    border: 1px solid rgba(214,179,106,0.35);
+    background: #141414;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.member-card h4 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.member-card p {
+    color: #d6b36a;
+    font-size: 15px;
+}
+
+.instrument-grid {
+    max-width: 750px;
+    margin: auto;
+}
+
+/* GALLERY */
+.gallery {
+    background: #111;
+}
 
 .gallery-grid {
     display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 250px;
-
+    height: 260px;
     object-fit: cover;
-
-    border-radius: 15px;
-
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
+/* RECRUITMENT */
+.recruitment {
+    background: #0b0b0b;
+}
 
-/* ========================================
-   10. Contact
-======================================== */
-
-.contact {
+.recruitment-box {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 45px 35px;
     text-align: center;
+    border: 1px solid rgba(214,179,106,0.4);
+    background: #141414;
 }
 
-.contact-box {
-    max-width: 600px;
-
-    margin: auto;
-    padding: 45px;
-
-    background: #151515;
-
-    border: 1px solid #c9a44c;
-    border-radius: 15px;
+.recruitment-box h3 {
+    color: #d6b36a;
+    font-size: 25px;
+    margin-bottom: 18px;
 }
 
-.contact-box h3 {
-    color: #c9a44c;
-    font-size: 32px;
-    margin-bottom: 30px;
-}
-
-.contact-box p {
-    font-size: 18px;
+.recruitment-box p {
     margin-bottom: 25px;
-}
-
-.contact-box a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.contact-box a:hover {
-    color: #c9a44c;
-}
-
-
-/* ========================================
-   11. Footer
-======================================== */
-
-.footer {
-    text-align: center;
-
-    padding: 50px 20px;
-
-    background: #050505;
-
-    border-top: 1px solid #333333;
-}
-
-.footer-logo {
-    color: #c9a44c;
-
-    font-size: 34px;
-    font-weight: bold;
-
-    margin-bottom: 20px;
-}
-
-.footer p {
     font-size: 16px;
 }
 
-.footer a {
-    color: #ffffff;
+.recruitment-divider {
+    width: 70%;
+    height: 1px;
+    background: rgba(214,179,106,0.25);
+    margin: 45px auto;
 }
 
-.footer a:hover {
-    color: #c9a44c;
+/* 表示切り替え用 */
+.recruitment-open,
+.recruitment-closed {
+    display: none;
 }
 
-.copyright {
-    margin-top: 30px;
-
-    font-size: 15px;
-    color: #aaaaaa;
+/* CONTACT */
+.contact {
+    background: #111;
 }
 
+.contact-content {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
 
-/* ========================================
-   12. Tablet
-======================================== */
+.contact-content > p {
+    margin-bottom: 35px;
+}
 
-@media (max-width: 1024px) {
+.contact-info {
+    display: inline-block;
+    text-align: left;
+    line-height: 2.5;
+    font-size: 17px;
+}
 
-    .header {
-        padding: 0 28px;
+.contact-info a {
+    color: #d6b36a;
+}
+
+/* FOOTER */
+.footer {
+    padding: 30px 15px;
+    text-align: center;
+    background: #050505;
+    color: #888;
+    font-size: 13px;
+}
+
+/* BACK TO TOP */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: #d6b36a;
+    color: #111;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 900;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .nav {
+        gap: 15px;
     }
 
-    .header nav {
-        gap: 18px;
-    }
-
-    .about {
-        gap: 35px;
+    .nav a {
+        font-size: 11px;
     }
 
     .member-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .about-content,
+    .event-box {
+        gap: 30px;
     }
-
 }
 
-
-/* ========================================
-   13. Small Tablet
-======================================== */
-
-@media (max-width: 768px) {
-
-    .header {
-        height: auto;
-        min-height: 76px;
-
-        padding: 14px 18px;
-
-        flex-direction: column;
-        gap: 8px;
+/* MOBILE */
+@media (max-width: 700px) {
+    .header-inner {
+        height: 70px;
     }
 
     .logo {
-        font-size: 24px;
-        text-align: center;
+        font-size: 19px;
     }
 
-    .header nav {
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 1002;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 27px;
+        height: 2px;
+        background: #d6b36a;
+        transition: 0.3s;
+    }
+
+    .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
         width: 100%;
-
-        justify-content: center;
-        flex-wrap: wrap;
-
-        gap: 6px 16px;
+        background: rgba(0,0,0,0.97);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 0;
+        gap: 22px;
+        border-bottom: 1px solid rgba(214,179,106,0.3);
     }
 
-    .header nav a {
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
         font-size: 14px;
     }
 
     .hero {
-        min-height: 620px;
-        height: 85vh;
+        min-height: 85vh;
     }
 
-    .hero-overlay {
-        top: auto;
-        bottom: 8%;
-
-        width: 90%;
-
-        transform: translateX(-50%);
-    }
-
-    .hero h1 {
-        font-size: clamp(34px, 7vw, 50px);
-    }
-
-    .hero p {
-        font-size: 19px;
-        margin: 12px 0 20px;
+    .hero-message {
+        font-size: 14px;
     }
 
     .section {
-        padding: 75px 8%;
+        padding: 80px 7%;
     }
 
-    .title {
-        font-size: 38px;
-        margin-bottom: 45px;
-    }
-
-    .about {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .about-text h2 {
-        font-size: 36px;
-    }
-
-    .card-area {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .card {
-        width: 100%;
-        max-width: none;
-    }
-
-    .member-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .member-info {
-        padding: 18px;
-    }
-
-    .member-group-title {
-        font-size: 28px;
-    }
-
-    .contact-box {
-        padding: 35px 25px;
-    }
-
-}
-
-
-/* ========================================
-   14. Smartphone
-======================================== */
-
-@media (max-width: 600px) {
-
-    .header {
-        padding: 12px 10px;
-    }
-
-    .logo {
-        font-size: 21px;
-    }
-
-    .header nav {
-        gap: 6px 13px;
-    }
-
-    .header nav a {
-        font-size: 13px;
-    }
-
-    .hero {
-        height: 75vh;
-        min-height: 520px;
-    }
-
-    .hero-overlay {
-        bottom: 7%;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-        letter-spacing: 2px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .section {
-        padding: 65px 6%;
-    }
-
-    .title {
-        font-size: 34px;
-        letter-spacing: 2px;
+    .section-heading {
         margin-bottom: 40px;
     }
 
-    .about-text h2 {
-        font-size: 30px;
+    .section-heading h2 {
+        font-size: 25px;
     }
 
-    .about-text p {
-        font-size: 16px;
+    .about-content,
+    .event-box {
+        grid-template-columns: 1fr;
     }
 
-    .card h3 {
-        font-size: 22px;
+    .about-image img {
+        height: 260px;
     }
 
-    .card p {
-        font-size: 16px;
+    .about-text h3 {
+        font-size: 21px;
     }
 
-    /* イベントは左右10%の余白を維持 */
+    .news-item {
+        flex-direction: column;
+        gap: 8px;
+    }
 
+    /* イベント画像と文章の左右10%余白を維持 */
     #event.section {
         padding-left: 10%;
         padding-right: 10%;
@@ -964,145 +547,28 @@ a {
 
     #event .event-box {
         width: 100%;
-        gap: 25px;
+        max-width: none;
     }
 
-    #event .title {
-        font-size: 34px;
-        letter-spacing: 5px;
-        margin-bottom: 40px;
+    .event-text h3 {
+        font-size: 25px;
     }
 
-    #event .event-image {
-        padding: 7px;
-    }
-
-    #event .event-text {
-        padding: 25px 15px;
-    }
-
-    #event .event-text::before {
-        font-size: 22px;
-        letter-spacing: 1px;
-    }
-
-    #event .event-text p {
+    .event-text p {
         font-size: 15px;
     }
 
-    /* メンバー紹介 */
-
-    #members .members-intro,
-    #members .members-description,
-    #members .members-message {
-        font-size: 16px;
-        top: -30px;
+    .members-intro {
+        font-size: 17px;
         margin-bottom: 35px;
     }
 
-    .member-card {
-        padding: 22px 16px;
-    }
-
-    .member-photo {
-        width: 95px;
-        height: 95px;
-        font-size: 35px;
-    }
-
-    .member-card h3,
-    .member-info h3,
-    .member-info h4 {
-        font-size: 21px;
-    }
-
-    .member-card p,
-    .member-info p {
-        font-size: 15px;
-    }
-
-    .member-part {
+    .members-description {
         font-size: 14px;
     }
 
-    .member-group-title {
-        font-size: 25px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-    }
-
-    .gallery-grid img {
-        height: 190px;
-    }
-
-    .contact-box {
-        padding: 28px 20px;
-    }
-
-    .contact-box h3 {
-        font-size: 25px;
-    }
-
-    .contact-box p {
-        font-size: 16px;
-    }
-
-    .footer-logo {
-        font-size: 27px;
-    }
-
-    .footer p {
-        font-size: 14px;
-    }
-
-}
-
-
-/* ========================================
-   15. Small Smartphone
-======================================== */
-
-@media (max-width: 380px) {
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .header nav {
-        gap: 5px 10px;
-    }
-
-    .header nav a {
-        font-size: 12px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .title {
-        font-size: 29px;
-    }
-
-    #event .event-text::before {
-        font-size: 19px;
-    }
-
-    .member-card {
-        padding: 18px 12px;
-    }
-
-    .member-card h3,
-    .member-info h3,
-    .member-info h4 {
-        font-size: 19px;
+    .member-grid {
+        grid-template-columns: 1fr;
     }
 
     .gallery-grid {
@@ -1110,11 +576,32 @@ a {
     }
 
     .gallery-grid img {
-        height: 220px;
+        height: 230px;
     }
 
-    .footer {
-        padding: 40px 16px;
+    .recruitment-box {
+        padding: 35px 20px;
     }
 
+    .recruitment-box h3 {
+        font-size: 21px;
+    }
+
+    .contact-info {
+        font-size: 14px;
+    }
+}
+
+/* MOTION */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }

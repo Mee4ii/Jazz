@@ -1,120 +1,138 @@
 
-// =====================
-// Scroll Fade Animation
-// =====================
+/* =====================================
+   募集・活動体験の切り替え設定
+===================================== */
+
+const recruitmentSettings = {
+    trialOpen: false,       // 活動体験：true＝受付中 / false＝受付停止中
+    memberRecruiting: false // メンバー募集：true＝募集中 / false＝募集停止中
+};
 
 
-const targets = document.querySelectorAll(
-    ".section, .card, .gallery-grid img"
-);
+/* =====================================
+   募集表示の更新
+===================================== */
 
+function updateRecruitmentDisplay() {
 
+    const trialOpen = document.getElementById("trialOpen");
+    const trialClosed = document.getElementById("trialClosed");
 
-const observer = new IntersectionObserver(
-(entries)=>{
+    const memberOpen = document.getElementById("memberOpen");
+    const memberClosed = document.getElementById("memberClosed");
 
-    entries.forEach(entry=>{
-
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-
-    });
-
-
-},
-{
-    threshold:0.15
-});
-
-
-
-targets.forEach(target=>{
-
-    target.classList.add("fade");
-
-    observer.observe(target);
-
-});
-
-
-
-
-
-
-// =====================
-// Header Scroll Effect
-// =====================
-
-
-const header = document.querySelector(".header");
-
-
-
-window.addEventListener("scroll",()=>{
-
-
-    if(window.scrollY > 50){
-
-        header.style.background =
-        "rgba(0,0,0,0.95)";
-
-    }else{
-
-        header.style.background =
-        "rgba(0,0,0,0.7)";
-
+    // 活動体験
+    if (trialOpen && trialClosed) {
+        trialOpen.style.display = recruitmentSettings.trialOpen ? "block" : "none";
+        trialClosed.style.display = recruitmentSettings.trialOpen ? "none" : "block";
     }
 
+    // メンバー募集
+    if (memberOpen && memberClosed) {
+        memberOpen.style.display = recruitmentSettings.memberRecruiting ? "block" : "none";
+        memberClosed.style.display = recruitmentSettings.memberRecruiting ? "none" : "block";
+    }
+}
+
+
+/* =====================================
+   スマートフォンメニュー
+===================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+
+function closeMenu() {
+    if (!menuToggle || !nav) return;
+
+    nav.classList.remove("active");
+    menuToggle.classList.remove("active");
+}
+
+if (menuToggle && nav) {
+
+    menuToggle.addEventListener("click", function () {
+        nav.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+    });
+}
+
+
+/* =====================================
+   ページ内スクロール
+===================================== */
+
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+    link.addEventListener("click", function (event) {
+
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (target) {
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            closeMenu();
+        }
+    });
 
 });
 
 
+/* =====================================
+   ページトップへ戻るボタン
+===================================== */
 
+const backToTop = document.getElementById("backToTop");
 
+if (backToTop) {
 
+    window.addEventListener("scroll", function () {
 
-// =====================
-// Smooth Scroll
-// =====================
-
-
-document.querySelectorAll(
-    'a[href^="#"]'
-)
-.forEach(anchor=>{
-
-
-    anchor.addEventListener(
-    "click",
-    function(e){
-
-
-        const target =
-        document.querySelector(
-            this.getAttribute("href")
-        );
-
-
-        if(target){
-
-            e.preventDefault();
-
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
+        if (window.scrollY > 400) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
         }
-
 
     });
 
+    backToTop.addEventListener("click", function () {
 
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+/* =====================================
+   フッターの年号
+===================================== */
+
+const currentYear = document.getElementById("currentYear");
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+
+
+/* =====================================
+   初期表示
+===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+    updateRecruitmentDisplay();
 });
