@@ -1,12 +1,14 @@
 
 /* ========================================
    Buddy's Jazz Chori
-   Main Style Sheet
+   Complete Style Sheet
+   Black & Gold Design
 ======================================== */
 
-/* =====================
-   Reset
-===================== */
+
+/* ========================================
+   1. Reset / Base
+======================================== */
 
 * {
     margin: 0;
@@ -22,18 +24,25 @@ body {
     font-family: "Noto Serif JP", serif;
     background: #0a0a0a;
     color: #ffffff;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 2;
     overflow-x: hidden;
 }
 
 img {
+    display: block;
     max-width: 100%;
+    height: auto;
+}
+
+a {
+    transition: 0.3s;
 }
 
 
-/* =====================
-   Header
-===================== */
+/* ========================================
+   2. Header
+======================================== */
 
 .header {
     position: fixed;
@@ -58,7 +67,7 @@ img {
 
 .logo {
     color: #c9a44c;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -66,15 +75,14 @@ img {
 .header nav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .header nav a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 1px;
-    transition: 0.3s;
 }
 
 .header nav a:hover {
@@ -82,15 +90,17 @@ img {
 }
 
 
-/* =====================
-   Hero
-===================== */
+/* ========================================
+   3. Hero
+======================================== */
 
 .hero {
+    position: relative;
+
+    width: 100%;
     height: 100vh;
     min-height: 600px;
 
-    position: relative;
     overflow: hidden;
 
     background-image: url("../img/img4.PNG");
@@ -107,11 +117,13 @@ img {
     inset: 0;
 
     background: rgba(0, 0, 0, 0.4);
+
     z-index: 0;
 }
 
 .hero-overlay {
     position: absolute;
+
     top: 90%;
     left: 50%;
 
@@ -125,12 +137,12 @@ img {
 
 .hero h1 {
     color: #c9a44c;
-    font-size: 70px;
+    font-size: 76px;
     letter-spacing: 5px;
 }
 
 .hero p {
-    font-size: 22px;
+    font-size: 25px;
     margin: 20px 0 40px;
 }
 
@@ -145,7 +157,9 @@ img {
     text-decoration: none;
     border-radius: 30px;
 
+    font-size: 18px;
     font-weight: bold;
+
     transition: 0.3s;
 }
 
@@ -154,28 +168,32 @@ img {
 }
 
 
-/* =====================
-   Section Common
-===================== */
+/* ========================================
+   4. Common Section
+======================================== */
 
 .section {
+    width: 100%;
     padding: 100px 10%;
 }
 
 .title {
+    position: relative;
+
     text-align: center;
 
-    font-size: 40px;
     color: #c9a44c;
+    font-size: 46px;
+    font-weight: bold;
 
+    letter-spacing: 4px;
     margin-bottom: 60px;
-    letter-spacing: 3px;
 }
 
 
-/* =====================
-   About
-===================== */
+/* ========================================
+   5. About
+======================================== */
 
 .about {
     display: flex;
@@ -185,41 +203,46 @@ img {
 
 .about-image {
     flex: 1;
+    min-width: 0;
 }
 
 .about-image img {
-    display: block;
     width: 100%;
     border-radius: 15px;
 }
 
 .about-text {
     flex: 1;
+    min-width: 0;
 }
 
 .about-text h2 {
     color: #c9a44c;
-    font-size: 40px;
+    font-size: 44px;
     margin-bottom: 30px;
 }
 
 .about-text p {
+    font-size: 18px;
     margin-bottom: 20px;
 }
 
 
-/* =====================
-   News
-===================== */
+/* ========================================
+   6. News
+======================================== */
 
 .card-area {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
 .card {
-    width: 350px;
+    flex: 1 1 280px;
+    max-width: 420px;
+
     padding: 35px;
 
     background: #151515;
@@ -236,14 +259,18 @@ img {
 
 .card h3 {
     color: #c9a44c;
+    font-size: 23px;
     margin-bottom: 15px;
 }
 
+.card p {
+    font-size: 18px;
+}
 
-/* =========================
-   Event
-   Premium Design
-========================= */
+
+/* ========================================
+   7. Event
+======================================== */
 
 #event {
     position: relative;
@@ -264,7 +291,7 @@ img {
     text-align: center;
 }
 
-/* 背景装飾ライン */
+/* 上下の装飾ライン */
 
 #event::before,
 #event::after {
@@ -294,16 +321,14 @@ img {
     bottom: 35px;
 }
 
-/* EVENTタイトル */
+/* イベントタイトル */
 
 #event .title {
-    position: relative;
     display: table;
-
     margin: 0 auto 65px;
     padding: 0 35px 18px;
 
-    font-size: 42px;
+    font-size: 46px;
     letter-spacing: 8px;
 }
 
@@ -311,7 +336,6 @@ img {
     content: "";
 
     position: absolute;
-
     width: 65px;
     height: 2px;
 
@@ -326,27 +350,21 @@ img {
 /* イベント全体 */
 
 #event .event-box {
-    position: relative;
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    gap: 42px;
-
-    /* 左右10%ずつの余白 */
-    width: 80%;
+    width: 100%;
     max-width: none;
 
     margin: 0 auto;
+    gap: 42px;
 }
 
-/* 画像の外枠 */
+/* 画像フレーム */
 
 #event .event-image {
     position: relative;
-
-    flex: none;
 
     width: 100%;
     max-width: none;
@@ -367,8 +385,6 @@ img {
         0 0 35px rgba(201, 164, 76, 0.12);
 }
 
-/* 内側のフレーム */
-
 #event .event-image::before {
     content: "";
 
@@ -381,11 +397,7 @@ img {
     z-index: 1;
 }
 
-/* イベント画像 */
-
 #event .event-image img {
-    display: block;
-
     width: 100%;
     height: auto;
 
@@ -396,10 +408,6 @@ img {
 /* イベント紹介文 */
 
 #event .event-text {
-    position: relative;
-
-    flex: none;
-
     width: 100%;
     max-width: none;
 
@@ -417,44 +425,233 @@ img {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* 紹介文の装飾 */
+/* Jazz Live Eventの装飾見出し */
 
 #event .event-text::before {
-    content: "✦";
+    content: "✦ Jazz Live Event ✦";
 
     display: block;
 
     color: #c9a44c;
-    font-size: 18px;
+    font-size: 30px;
+    font-weight: bold;
 
-    margin-bottom: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
 }
 
+/* HTML側の旧見出しは非表示 */
+
 #event .event-text h3 {
-    color: #d7b86c;
-
-    font-size: 29px;
-    letter-spacing: 3px;
-
-    margin-bottom: 15px;
+    display: none;
 }
 
 #event .event-text p {
     color: #d0d0d0;
-
-    font-size: 15px;
+    font-size: 18px;
     line-height: 2.2;
 }
 
 
-/* =====================
-   Gallery
-===================== */
+/* ========================================
+   8. Members
+======================================== */
+
+#members {
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(201, 164, 76, 0.07),
+            transparent 55%
+        ),
+        #0a0a0a;
+}
+
+/* メンバー紹介の説明文 */
+
+#members .members-intro,
+#members .members-description,
+#members .members-message {
+    position: relative;
+    top: -30px;
+
+    text-align: center;
+
+    font-size: 19px;
+    line-height: 2;
+
+    margin: 0 auto 40px;
+
+    max-width: 900px;
+}
+
+/* メンバー一覧 */
+
+.member-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0 auto;
+}
+
+/* メンバーカード */
+
+.member-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #191919,
+        #101010
+    );
+
+    border: 1px solid rgba(201, 164, 76, 0.55);
+    border-radius: 15px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(201, 164, 76, 0.13);
+}
+
+/* MEMBER表示 */
+
+.member-mark {
+    color: #c9a44c;
+
+    font-size: 14px;
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+/* メンバー写真 */
+
+.member-photo {
+    display: grid;
+    place-items: center;
+
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 20px;
+
+    background: linear-gradient(
+        135deg,
+        #242018,
+        #080808
+    );
+
+    border: 1px solid #c9a44c;
+    border-radius: 50%;
+
+    color: #c9a44c;
+    font-size: 45px;
+
+    overflow: hidden;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* メンバー情報 */
+
+.member-info {
+    width: 100%;
+    padding: 10px;
+}
+
+.member-card h3,
+.member-info h3,
+.member-info h4 {
+    color: #c9a44c;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.member-card p,
+.member-info p {
+    color: #dddddd;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 12px;
+}
+
+/* 担当パート */
+
+.member-part {
+    color: #c9a44c;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* Piano・Trumpetなどの1名グループ */
+
+.single-member {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+}
+
+.single-member .member-card {
+    width: 100%;
+    max-width: none;
+}
+
+/* グループ単位で使う場合 */
+
+.member-group {
+    width: 100%;
+    margin-bottom: 65px;
+}
+
+.member-group-title {
+    color: #c9a44c;
+
+    font-size: 32px;
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(201, 164, 76, 0.5);
+}
+
+
+/* ========================================
+   9. Gallery
+======================================== */
 
 .gallery-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
     gap: 25px;
 }
 
@@ -463,87 +660,30 @@ img {
     height: 250px;
 
     object-fit: cover;
+
     border-radius: 15px;
 
     transition: 0.3s;
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 
-/* =====================
-   Trial Form
-===================== */
-
-.trial {
-    background: #111111;
-}
-
-.trial-message {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.trial-form {
-    max-width: 700px;
-    margin: auto;
-}
-
-.trial-form div {
-    margin-bottom: 25px;
-}
-
-.trial-form label {
-    display: block;
-
-    color: #c9a44c;
-
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.trial-form input,
-.trial-form select,
-.trial-form textarea {
-    width: 100%;
-
-    padding: 15px;
-
-    background: #1a1a1a;
-    border: 1px solid #555555;
-
-    color: #ffffff;
-    border-radius: 8px;
-
-    font-size: 16px;
-}
-
-.trial-form textarea {
-    height: 150px;
-    resize: none;
-}
-
-.trial-form button {
-    border: none;
-    cursor: pointer;
-}
-
-
-/* =====================
-   Contact
-===================== */
+/* ========================================
+   10. Contact
+======================================== */
 
 .contact {
     text-align: center;
 }
 
 .contact-box {
-    max-width: 500px;
+    max-width: 600px;
 
     margin: auto;
-    padding: 40px;
+    padding: 45px;
 
     background: #151515;
 
@@ -553,12 +693,12 @@ img {
 
 .contact-box h3 {
     color: #c9a44c;
-
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 30px;
 }
 
 .contact-box p {
+    font-size: 18px;
     margin-bottom: 25px;
 }
 
@@ -572,9 +712,9 @@ img {
 }
 
 
-/* =====================
-   Footer
-===================== */
+/* ========================================
+   11. Footer
+======================================== */
 
 .footer {
     text-align: center;
@@ -582,137 +722,387 @@ img {
     padding: 50px 20px;
 
     background: #050505;
+
     border-top: 1px solid #333333;
 }
 
 .footer-logo {
     color: #c9a44c;
 
-    font-size: 30px;
+    font-size: 34px;
     font-weight: bold;
 
     margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 16px;
 }
 
 .footer a {
     color: #ffffff;
 }
 
+.footer a:hover {
+    color: #c9a44c;
+}
+
 .copyright {
     margin-top: 30px;
 
-    font-size: 14px;
+    font-size: 15px;
     color: #aaaaaa;
 }
 
 
-/* =====================
-   Responsive
-   Tablet
-===================== */
+/* ========================================
+   12. Tablet
+======================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
 
     .header {
-        padding: 0 20px;
-    }
-
-    .logo {
-        font-size: 20px;
+        padding: 0 28px;
     }
 
     .header nav {
-        gap: 15px;
+        gap: 18px;
+    }
+
+    .about {
+        gap: 35px;
+    }
+
+    .member-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================
+   13. Small Tablet
+======================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: auto;
+        min-height: 76px;
+
+        padding: 14px 18px;
+
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .header nav {
+        width: 100%;
+
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 6px 16px;
+    }
+
+    .header nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 620px;
+        height: 85vh;
+    }
+
+    .hero-overlay {
+        top: auto;
+        bottom: 8%;
+
+        width: 90%;
+
+        transform: translateX(-50%);
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 7vw, 50px);
+    }
+
+    .hero p {
+        font-size: 19px;
+        margin: 12px 0 20px;
+    }
+
+    .section {
+        padding: 75px 8%;
+    }
+
+    .title {
+        font-size: 38px;
+        margin-bottom: 45px;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about-text h2 {
+        font-size: 36px;
+    }
+
+    .card-area {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+    }
+
+    .member-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .member-info {
+        padding: 18px;
+    }
+
+    .member-group-title {
+        font-size: 28px;
+    }
+
+    .contact-box {
+        padding: 35px 25px;
+    }
+
+}
+
+
+/* ========================================
+   14. Smartphone
+======================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 12px 10px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .header nav {
+        gap: 6px 13px;
     }
 
     .header nav a {
         font-size: 13px;
     }
 
+    .hero {
+        height: 75vh;
+        min-height: 520px;
+    }
+
+    .hero-overlay {
+        bottom: 7%;
+    }
+
     .hero h1 {
-        font-size: 42px;
+        font-size: 36px;
+        letter-spacing: 2px;
     }
 
     .hero p {
         font-size: 16px;
     }
 
-    .about {
-        flex-direction: column;
+    .section {
+        padding: 65px 6%;
     }
 
-    .card-area {
-        flex-direction: column;
-        align-items: center;
+    .title {
+        font-size: 34px;
+        letter-spacing: 2px;
+        margin-bottom: 40px;
     }
 
-    .card {
+    .about-text h2 {
+        font-size: 30px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .card h3 {
+        font-size: 22px;
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+
+    /* イベントは左右10%の余白を維持 */
+
+    #event.section {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    #event .event-box {
         width: 100%;
+        gap: 25px;
+    }
+
+    #event .title {
+        font-size: 34px;
+        letter-spacing: 5px;
+        margin-bottom: 40px;
+    }
+
+    #event .event-image {
+        padding: 7px;
+    }
+
+    #event .event-text {
+        padding: 25px 15px;
+    }
+
+    #event .event-text::before {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+
+    #event .event-text p {
+        font-size: 15px;
+    }
+
+    /* メンバー紹介 */
+
+    #members .members-intro,
+    #members .members-description,
+    #members .members-message {
+        font-size: 16px;
+        top: -30px;
+        margin-bottom: 35px;
+    }
+
+    .member-card {
+        padding: 22px 16px;
+    }
+
+    .member-photo {
+        width: 95px;
+        height: 95px;
+        font-size: 35px;
+    }
+
+    .member-card h3,
+    .member-info h3,
+    .member-info h4 {
+        font-size: 21px;
+    }
+
+    .member-card p,
+    .member-info p {
+        font-size: 15px;
+    }
+
+    .member-part {
+        font-size: 14px;
+    }
+
+    .member-group-title {
+        font-size: 25px;
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
     }
+
+    .gallery-grid img {
+        height: 190px;
+    }
+
+    .contact-box {
+        padding: 28px 20px;
+    }
+
+    .contact-box h3 {
+        font-size: 25px;
+    }
+
+    .contact-box p {
+        font-size: 16px;
+    }
+
+    .footer-logo {
+        font-size: 27px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+
 }
 
 
-/* =====================
-   Responsive
-   Smartphone
-===================== */
+/* ========================================
+   15. Small Smartphone
+======================================== */
 
-@media (max-width: 600px) {
-
-    .header {
-        min-height: auto;
-
-        padding: 15px 10px;
-
-        flex-direction: column;
-        gap: 12px;
-    }
+@media (max-width: 380px) {
 
     .logo {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .header nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px 15px;
+        gap: 5px 10px;
     }
 
     .header nav a {
         font-size: 12px;
     }
 
-    .hero {
-        min-height: 550px;
-        background-position: center;
-    }
-
-    .hero-overlay {
-        top: 85%;
-        width: 90%;
-    }
-
     .hero h1 {
-        font-size: 32px;
-        letter-spacing: 2px;
+        font-size: 30px;
     }
 
     .hero p {
         font-size: 14px;
-        margin: 15px 0 25px;
-    }
-
-    .section {
-        padding: 70px 5%;
     }
 
     .title {
-        font-size: 32px;
-        margin-bottom: 40px;
+        font-size: 29px;
+    }
+
+    #event .event-text::before {
+        font-size: 19px;
+    }
+
+    .member-card {
+        padding: 18px 12px;
+    }
+
+    .member-card h3,
+    .member-info h3,
+    .member-info h4 {
+        font-size: 19px;
     }
 
     .gallery-grid {
@@ -723,77 +1113,8 @@ img {
         height: 220px;
     }
 
-    .btn {
-        padding: 12px 30px;
+    .footer {
+        padding: 40px 16px;
     }
 
-    .contact-box {
-        padding: 25px;
-    }
-
-    /* イベント */
-
-    #event .title {
-        font-size: 32px;
-        letter-spacing: 5px;
-        margin-bottom: 40px;
-    }
-
-    #event .event-box {
-        width: 80%;
-        gap: 25px;
-    }
-
-    #event .event-image {
-        padding: 6px;
-    }
-
-    #event .event-text {
-        padding: 22px 12px;
-    }
-
-    #event .event-text h3 {
-        font-size: 21px;
-    }
-
-    #event .event-text p {
-        font-size: 13px;
-    }
-
-    #event::before,
-    #event::after {
-        width: 90%;
-    }
-}
-
-
-/* =====================
-   Small Smartphone
-===================== */
-
-@media (max-width: 380px) {
-
-    .logo {
-        font-size: 17px;
-    }
-
-    .header nav {
-        gap: 8px 12px;
-    }
-
-    .header nav a {
-        font-size: 11px;
-    }
-
-    .hero h1 {
-        font-size: 27px;
-    }
-
-    .title {
-        font-size: 28px;
-    }
-
-    #event .event-text h3 {
-        font-size: 18px;
-    }
 }
