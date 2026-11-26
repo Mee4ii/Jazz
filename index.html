@@ -4,253 +4,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Buddy's Jazz Choriの公式ホームページです。">
-    <title>Buddy's Jazz Chori</title>
+    <meta name="theme-color" content="#0b0b0b">
+    <meta name="description" content="Buddy's Jazz Choriの公式ホームページ。音楽を通して心をつなぐジャズコーラスグループです。">
+    <title>Buddy's Jazz Chori | Jazz Chorus</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
 
-<header class="header">
-    <div class="header-inner">
-        <a href="#top" class="logo">Buddy's Jazz Chori</a>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <a class="logo" href="#top" aria-label="Buddy's Jazz Chori トップ">
+                Buddy's <span>Jazz Chori</span>
+            </a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="メニューを開く"
+                aria-controls="nav"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <nav class="nav" id="nav">
-            <a href="#about">ABOUT</a>
-            <a href="#news">NEWS</a>
-            <a href="#event">EVENT</a>
-            <a href="#members">MEMBERS</a>
-            <a href="#gallery">GALLERY</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
-    </div>
-</header>
-
-<main>
-
-    <!-- TOP -->
-    <section class="hero" id="top">
-        <div class="hero-content">
-            <p class="hero-subtitle">JAZZ CHORUS GROUP</p>
-            <h1>Buddy's<br>Jazz Chori</h1>
-            <p class="hero-message">響きを楽しむ、心つなぐジャズコーラス</p>
-            <a href="#about" class="gold-button">ABOUT US</a>
+            <nav class="nav" id="nav" aria-label="メインナビゲーション">
+                <a href="#about">ABOUT</a>
+                <a href="#news">NEWS</a>
+                <a href="#event">EVENT</a>
+                <a href="#members">MEMBERS</a>
+                <a href="#gallery">GALLERY</a>
+                <a href="#recruitment">JOIN US</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- ABOUT -->
-    <section class="section about" id="about">
-        <div class="section-heading">
-            <span class="section-en">ABOUT</span>
-            <h2>私たちについて</h2>
-        </div>
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero" id="top" aria-label="トップ">
+            <div class="hero-shade"></div>
 
-        <div class="about-content">
-            <div class="about-image">
-                <img src="img/about.jpg" alt="Buddy's Jazz Chori">
+            <div class="hero-content">
+                <p class="hero-eyebrow">JAZZ CHORUS GROUP</p>
+                <h1>Buddy's<br><span>Jazz Chori</span></h1>
+                <p class="hero-message">
+                    響きを楽しむ、心つなぐジャズコーラス
+                </p>
+                <a href="#about" class="button button-gold">ABOUT US</a>
             </div>
 
-            <div class="about-text">
-                <h3>音楽を通して、心をひとつに。</h3>
-                <p>
-                    Buddy's Jazz Choriは、ジャズコーラスを楽しみながら
-                    音楽を通じたつながりを大切に活動しているグループです。
-                </p>
-                <p>
-                    仲間と声を重ね、音楽の楽しさや喜びを共有しています。
-                    一人ひとりの個性を大切にしながら、心に響くハーモニーを目指しています。
-                </p>
-            </div>
-        </div>
-    </section>
+            <a href="#about" class="scroll-indicator" aria-label="下へスクロール">
+                <span>SCROLL</span>
+                <span class="scroll-line"></span>
+            </a>
+        </section>
 
-    <!-- NEWS -->
-    <section class="section news" id="news">
-        <div class="section-heading">
-            <span class="section-en">NEWS</span>
-            <h2>お知らせ</h2>
-        </div>
-
-        <div class="news-list">
-            <article class="news-item">
-                <span class="news-date">お知らせ</span>
-                <div>
-                    <h3>Buddy's Jazz Chori 活動中</h3>
-                    <p>私たちは楽しくジャズコーラスの活動を行っています。</p>
+        <!-- ABOUT -->
+        <section class="section about" id="about">
+            <div class="section-inner about-layout">
+                <div class="about-image">
+                    <img src="img/about.jpg" alt="Buddy's Jazz Choriの活動風景" loading="lazy">
                 </div>
-            </article>
 
-            <article class="news-item">
-                <span class="news-date">ご案内</span>
-                <div>
-                    <h3>活動体験・メンバー募集について</h3>
-                    <p>募集状況は当ホームページにてご案内いたします。</p>
+                <div class="about-content">
+                    <p class="section-eyebrow">ABOUT US</p>
+                    <h2 class="section-title">音楽を通して、<br>心をひとつに。</h2>
+
+                    <p>
+                        Buddy's Jazz Choriは、ジャズコーラスを楽しみながら、
+                        音楽を通じた人とのつながりを大切にしているグループです。
+                    </p>
+                    <p>
+                        声を重ねる楽しさや、みんなで音楽をつくる喜びを大切に、
+                        心に届くハーモニーを目指して活動しています。
+                    </p>
                 </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- EVENT -->
-    <section class="section event" id="event">
-        <div class="section-heading">
-            <span class="section-en">EVENT</span>
-            <h2>イベント情報</h2>
-        </div>
-
-        <div class="event-box">
-            <div class="event-image">
-                <img src="img/img1.PNG" alt="Jazz Live Event">
             </div>
+        </section>
 
-            <div class="event-text">
-                <h3>✦ Jazz Live Event ✦</h3>
-                <p>
-                    Buddy's Jazz Choriがお届けするジャズライブ。
-                    音楽と歌声が織りなす特別な時間をお楽しみください。
+        <!-- NEWS -->
+        <section class="section news" id="news">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="section-eyebrow">INFORMATION</p>
+                    <h2 class="section-title">NEWS</h2>
+                    <p class="section-lead">お知らせ・ご案内</p>
+                </div>
+
+                <div class="news-list">
+                    <article class="news-item">
+                        <span class="news-label">お知らせ</span>
+                        <div>
+                            <h3>Buddy's Jazz Chori 活動中</h3>
+                            <p>私たちは楽しくジャズコーラスの活動を行っています。</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <span class="news-label">ご案内</span>
+                        <div>
+                            <h3>活動体験・メンバー募集について</h3>
+                            <p>募集状況は当ホームページにてご案内いたします。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT -->
+        <section class="section event" id="event">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="section-eyebrow">LIVE & EVENT</p>
+                    <h2 class="section-title">EVENT</h2>
+                    <p class="section-lead">音楽を楽しむひととき</p>
+                </div>
+
+                <div class="event-layout">
+                    <div class="event-poster">
+                        <img src="img/img1.PNG" alt="Jazz Live Eventの案内ポスター" loading="lazy">
+                    </div>
+
+                    <div class="event-content">
+                        <p class="event-mark">✦ JAZZ LIVE EVENT ✦</p>
+                        <h3>音楽でつながる、<br>特別なひとときを。</h3>
+                        <p>
+                            Buddy's Jazz Choriの歌声を、ぜひお楽しみください。
+                            皆さまと音楽を通じてつながれることを楽しみにしています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMBERS -->
+        <section class="section members" id="members">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="section-eyebrow">OUR MEMBERS</p>
+                    <h2 class="section-title">MEMBERS</h2>
+                    <p class="section-lead">一緒に音楽を楽しむ仲間たち</p>
+                </div>
+
+                <p class="members-intro">
+                    それぞれの声を重ねながら、みんなでハーモニーをつくっています。
                 </p>
+
+                <div class="member-category">
+                    <h3 class="category-title">SOPRANO <span>ソプラノ</span></h3>
+                    <div class="member-grid">
+                        <div class="member-card"><span>♪</span><p>中野　里美</p></div>
+                        <div class="member-card"><span>♪</span><p>川島　裕子</p></div>
+                        <div class="member-card"><span>♪</span><p>黒木　久美子</p></div>
+                        <div class="member-card"><span>♪</span><p>山本　里恵</p></div>
+                        <div class="member-card"><span>♪</span><p>疋田　良重</p></div>
+                    </div>
+                </div>
+
+                <div class="member-category">
+                    <h3 class="category-title">ALTO <span>アルト</span></h3>
+                    <div class="member-grid">
+                        <div class="member-card"><span>♫</span><p>中野　睦子</p></div>
+                        <div class="member-card"><span>♫</span><p>廣島　ちず子</p></div>
+                        <div class="member-card"><span>♫</span><p>鶴田　映子</p></div>
+                        <div class="member-card"><span>♫</span><p>江川　品子</p></div>
+                    </div>
+                </div>
+
+                <div class="member-category">
+                    <h3 class="category-title">INSTRUMENTS <span>楽器</span></h3>
+                    <div class="member-grid instrument-grid">
+                        <div class="member-card instrument-card">
+                            <span>♬</span>
+                            <div>
+                                <p>治田　亮子</p>
+                                <small>PIANO</small>
+                            </div>
+                        </div>
+                        <div class="member-card instrument-card">
+                            <span>♬</span>
+                            <div>
+                                <p>中野　公雄</p>
+                                <small>TRUMPET</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- MEMBERS -->
-    <section class="section members" id="members">
-        <div class="section-heading">
-            <span class="section-en">MEMBERS</span>
-            <h2>メンバー紹介</h2>
-        </div>
+        <!-- GALLERY -->
+        <section class="section gallery" id="gallery">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="section-eyebrow">OUR MOMENTS</p>
+                    <h2 class="section-title">GALLERY</h2>
+                    <p class="section-lead">活動の様子をご紹介します</p>
+                </div>
 
-        <p class="members-intro">
-            Buddy's Jazz Choriで活動するメンバーをご紹介します。
+                <div class="gallery-grid">
+                    <figure class="gallery-item">
+                        <img src="img/gallery01.jpg" alt="Buddy's Jazz Choriの活動風景" loading="lazy">
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="img/event01.jpg" alt="イベントの様子" loading="lazy">
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="img/about.jpg" alt="グループの写真" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECRUITMENT -->
+        <section class="section recruitment" id="recruitment">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="section-eyebrow">JOIN OUR MUSIC</p>
+                    <h2 class="section-title">JOIN US</h2>
+                    <p class="section-lead">一緒に音楽を楽しみませんか？</p>
+                </div>
+
+                <div class="recruitment-list">
+                    <div class="recruitment-group">
+                        <div class="recruitment-heading">
+                            <span class="recruitment-icon">♪</span>
+                            <div>
+                                <h3>活動体験</h3>
+                                <p>まずは雰囲気を感じてみませんか？</p>
+                            </div>
+                        </div>
+
+                        <div id="trialOpen" class="recruitment-box recruitment-open" hidden>
+                            <span class="status status-open">受付中</span>
+                            <p>活動体験を受け付けています。</p>
+                            <a href="#contact" class="text-link">お問い合わせはこちら</a>
+                        </div>
+
+                        <div id="trialClosed" class="recruitment-box recruitment-closed" hidden>
+                            <span class="status status-closed">受付休止中</span>
+                            <p>現在、活動体験の受付を休止しています。</p>
+                        </div>
+                    </div>
+
+                    <div class="recruitment-divider"></div>
+
+                    <div class="recruitment-group">
+                        <div class="recruitment-heading">
+                            <span class="recruitment-icon">♫</span>
+                            <div>
+                                <h3>メンバー募集</h3>
+                                <p>私たちと一緒に歌う仲間を募集しています。</p>
+                            </div>
+                        </div>
+
+                        <div id="memberOpen" class="recruitment-box recruitment-open" hidden>
+                            <span class="status status-open">募集中</span>
+                            <p>新しいメンバーを募集しています。</p>
+                            <a href="#contact" class="text-link">お問い合わせはこちら</a>
+                        </div>
+
+                        <div id="memberClosed" class="recruitment-box recruitment-closed" hidden>
+                            <span class="status status-closed">募集休止中</span>
+                            <p>現在、メンバー募集を休止しています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section contact" id="contact">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="section-eyebrow">GET IN TOUCH</p>
+                    <h2 class="section-title">CONTACT</h2>
+                    <p class="section-lead">お問い合わせ</p>
+                </div>
+
+                <p class="contact-message">
+                    活動体験やメンバー募集、活動についてのお問い合わせは<br class="desktop-only">
+                    お電話にてお願いいたします。
+                </p>
+
+                <div class="contact-card">
+                    <p class="contact-label">REPRESENTATIVE</p>
+                    <h3>中野 里美</h3>
+
+                    <div class="contact-detail">
+                        <span>PHONE</span>
+                        <a href="tel:09024599061">090-2459-9061</a>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span>ADDRESS</span>
+                        <p>〒883-0041<br>宮崎県日向市北町3-18</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a class="footer-logo" href="#top">Buddy's Jazz Chori</a>
+        <p>響きを楽しむ、心つなぐジャズコーラス</p>
+        <p class="copyright">
+            © <span id="currentYear"></span> Buddy's Jazz Chori. All Rights Reserved.
         </p>
+    </footer>
 
-        <p class="members-description">
-            それぞれの個性を生かしながら、素敵なハーモニーを奏でています。
-        </p>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="ページの先頭へ戻る">
+        <span>↑</span>
+    </button>
 
-        <div class="member-category">
-            <h3>Soprano</h3>
-            <div class="member-grid">
-                <div class="member-card"><h4>メンバー</h4><p>ソプラノ</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>ソプラノ</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>ソプラノ</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>ソプラノ</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>ソプラノ</p></div>
-            </div>
-        </div>
-
-        <div class="member-category">
-            <h3>Alto</h3>
-            <div class="member-grid">
-                <div class="member-card"><h4>メンバー</h4><p>アルト</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>アルト</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>アルト</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>アルト</p></div>
-            </div>
-        </div>
-
-        <div class="member-category">
-            <h3>Instruments</h3>
-            <div class="member-grid instrument-grid">
-                <div class="member-card"><h4>メンバー</h4><p>Piano</p></div>
-                <div class="member-card"><h4>メンバー</h4><p>Trumpet</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="section gallery" id="gallery">
-        <div class="section-heading">
-            <span class="section-en">GALLERY</span>
-            <h2>ギャラリー</h2>
-        </div>
-
-        <div class="gallery-grid">
-            <img src="img/gallery01.jpg" alt="活動風景">
-            <img src="img/event01.jpg" alt="イベント風景">
-            <img src="img/about.jpg" alt="グループ写真">
-        </div>
-    </section>
-
-    <!-- RECRUITMENT -->
-    <section class="section recruitment" id="recruitment">
-        <div class="section-heading">
-            <span class="section-en">RECRUITMENT</span>
-            <h2>活動体験・メンバー募集</h2>
-        </div>
-
-        <!-- 活動体験：受付中 -->
-        <div class="recruitment-box recruitment-open" id="trialOpen">
-            <h3>活動体験受付中</h3>
-            <p>
-                Buddy's Jazz Choriの活動を体験してみませんか？
-                まずはお気軽にお問い合わせください。
-            </p>
-            <a href="#contact" class="gold-button">お問い合わせ</a>
-        </div>
-
-        <!-- 活動体験：受付停止中 -->
-        <div class="recruitment-box recruitment-closed" id="trialClosed">
-            <h3>現在、活動体験の受付を停止しています</h3>
-            <p>次回の受付開始までお待ちください。</p>
-        </div>
-
-        <div class="recruitment-divider"></div>
-
-        <!-- メンバー募集：募集中 -->
-        <div class="recruitment-box recruitment-open" id="memberOpen">
-            <h3>メンバー募集中</h3>
-            <p>
-                私たちと一緒にジャズコーラスを楽しみませんか？
-                音楽が好きな方、一緒に活動してみたい方をお待ちしています。
-            </p>
-            <a href="#contact" class="gold-button">お問い合わせ</a>
-        </div>
-
-        <!-- メンバー募集：募集停止中 -->
-        <div class="recruitment-box recruitment-closed" id="memberClosed">
-            <h3>現在、メンバー募集を停止しています</h3>
-            <p>次回の募集開始までお待ちください。</p>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-        <div class="section-heading">
-            <span class="section-en">CONTACT</span>
-            <h2>お問い合わせ</h2>
-        </div>
-
-        <div class="contact-content">
-            <p>活動についてのお問い合わせはこちらまでお願いいたします。</p>
-
-            <div class="contact-info">
-                <p><strong>代表：</strong>中野里美</p>
-                <p><strong>電話番号：</strong><a href="tel:09024599061">090-2459-9061</a></p>
-                <p><strong>住所：</strong>〒883-0041 宮崎県日向市北町3-18</p>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer class="footer">
-    <p>© <span id="currentYear"></span> Buddy's Jazz Chori. All Rights Reserved.</p>
-</footer>
-
-<button id="backToTop" class="back-to-top" aria-label="ページ上部へ戻る">↑</button>
-
-<script src="main.js"></script>
-
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,138 +1,194 @@
 
-/* =====================================
-   募集・活動体験の切り替え設定
-===================================== */
+/* ========================================
+   Buddy's Jazz Chori
+   Main JavaScript
+======================================== */
 
-const recruitmentSettings = {
-    trialOpen: false,       // 活動体験：true＝受付中 / false＝受付停止中
-    memberRecruiting: false // メンバー募集：true＝募集中 / false＝募集停止中
-};
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
 
+    /* ---------- Recruitment Settings ---------- */
 
-/* =====================================
-   募集表示の更新
-===================================== */
+    // true : 受付中・募集中
+    // false: 受付休止中・募集休止中
+    const recruitmentSettings = {
+        trialOpen: false,
+        memberRecruiting: false
+    };
 
-function updateRecruitmentDisplay() {
+    function updateRecruitmentDisplay() {
+        const trialOpen = document.getElementById("trialOpen");
+        const trialClosed = document.getElementById("trialClosed");
+        const memberOpen = document.getElementById("memberOpen");
+        const memberClosed = document.getElementById("memberClosed");
 
-    const trialOpen = document.getElementById("trialOpen");
-    const trialClosed = document.getElementById("trialClosed");
+        if (trialOpen && trialClosed) {
+            trialOpen.hidden = !recruitmentSettings.trialOpen;
+            trialClosed.hidden = recruitmentSettings.trialOpen;
+        }
 
-    const memberOpen = document.getElementById("memberOpen");
-    const memberClosed = document.getElementById("memberClosed");
-
-    // 活動体験
-    if (trialOpen && trialClosed) {
-        trialOpen.style.display = recruitmentSettings.trialOpen ? "block" : "none";
-        trialClosed.style.display = recruitmentSettings.trialOpen ? "none" : "block";
+        if (memberOpen && memberClosed) {
+            memberOpen.hidden = !recruitmentSettings.memberRecruiting;
+            memberClosed.hidden = recruitmentSettings.memberRecruiting;
+        }
     }
 
-    // メンバー募集
-    if (memberOpen && memberClosed) {
-        memberOpen.style.display = recruitmentSettings.memberRecruiting ? "block" : "none";
-        memberClosed.style.display = recruitmentSettings.memberRecruiting ? "none" : "block";
+    updateRecruitmentDisplay();
+
+
+    /* ---------- Mobile Navigation ---------- */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav");
+
+    function openMenu() {
+        if (!menuToggle || !nav) return;
+
+        nav.classList.add("active");
+        menuToggle.classList.add("active");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "メニューを閉じる");
+        body.classList.add("menu-open");
     }
-}
+
+    function closeMenu() {
+        if (!menuToggle || !nav) return;
+
+        nav.classList.remove("active");
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "メニューを開く");
+        body.classList.remove("menu-open");
+    }
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        nav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("click", (event) => {
+            const clickedInsideMenu = nav.contains(event.target);
+            const clickedToggle = menuToggle.contains(event.target);
+
+            if (!clickedInsideMenu && !clickedToggle) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 780) {
+                closeMenu();
+            }
+        });
+    }
 
 
-/* =====================================
-   スマートフォンメニュー
-===================================== */
+    /* ---------- Smooth Scroll ---------- */
 
-const menuToggle = document.getElementById("menuToggle");
-const nav = document.getElementById("nav");
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-function closeMenu() {
-    if (!menuToggle || !nav) return;
+    anchorLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const href = link.getAttribute("href");
 
-    nav.classList.remove("active");
-    menuToggle.classList.remove("active");
-}
+            if (!href || href === "#") return;
 
-if (menuToggle && nav) {
+            const target = document.getElementById(href.slice(1));
 
-    menuToggle.addEventListener("click", function () {
-        nav.classList.toggle("active");
-        menuToggle.classList.toggle("active");
-    });
+            if (!target) return;
 
-    nav.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", closeMenu);
-    });
-}
-
-
-/* =====================================
-   ページ内スクロール
-===================================== */
-
-document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-
-    link.addEventListener("click", function (event) {
-
-        const targetId = this.getAttribute("href");
-        const target = document.querySelector(targetId);
-
-        if (target) {
             event.preventDefault();
 
+            const prefersReducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
             target.scrollIntoView({
-                behavior: "smooth",
+                behavior: prefersReducedMotion ? "auto" : "smooth",
                 block: "start"
             });
 
             closeMenu();
-        }
+        });
     });
 
-});
+
+    /* ---------- Header Scroll Effect ---------- */
+
+    const header = document.querySelector(".header");
+
+    function updateHeader() {
+        if (!header) return;
+
+        if (window.scrollY > 50) {
+            header.classList.add("is-scrolled");
+        } else {
+            header.classList.remove("is-scrolled");
+        }
+    }
+
+    updateHeader();
+
+    window.addEventListener("scroll", updateHeader, {
+        passive: true
+    });
 
 
-/* =====================================
-   ページトップへ戻るボタン
-===================================== */
+    /* ---------- Back To Top ---------- */
 
-const backToTop = document.getElementById("backToTop");
+    const backToTop = document.getElementById("backToTop");
 
-if (backToTop) {
-
-    window.addEventListener("scroll", function () {
+    function updateBackToTop() {
+        if (!backToTop) return;
 
         if (window.scrollY > 400) {
             backToTop.classList.add("show");
         } else {
             backToTop.classList.remove("show");
         }
+    }
 
-    });
+    if (backToTop) {
+        updateBackToTop();
 
-    backToTop.addEventListener("click", function () {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+        window.addEventListener("scroll", updateBackToTop, {
+            passive: true
         });
 
-    });
+        backToTop.addEventListener("click", () => {
+            const prefersReducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
 
-}
-
-
-/* =====================================
-   フッターの年号
-===================================== */
-
-const currentYear = document.getElementById("currentYear");
-
-if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-}
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? "auto" : "smooth"
+            });
+        });
+    }
 
 
-/* =====================================
-   初期表示
-===================================== */
+    /* ---------- Current Year ---------- */
 
-document.addEventListener("DOMContentLoaded", function () {
-    updateRecruitmentDisplay();
+    const currentYear = document.getElementById("currentYear");
+
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
 });
