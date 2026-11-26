@@ -7,14 +7,30 @@
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
 
-    /* ---------- Recruitment Settings ---------- */
+    /* ========================================
+       募集関連の設定
+       true  = ON（表示・受付する）
+       false = OFF（非表示・受付しない）
+    ======================================== */
 
-    // true : 受付中・募集中
-    // false: 受付休止中・募集休止中
     const recruitmentSettings = {
-        trialOpen: false,
-        memberRecruiting: false
+        trialOpen: false,              // 活動体験の受付
+        memberRecruiting: false,       // メンバー募集
+        guidelinesVisible: false,     // 募集要項の表示
+        applicationFormVisible: false // 応募フォームの表示
     };
+
+    /*
+     * FormspreeのフォームURLを設定
+     *
+     * 例：
+     * "https://formspree.io/f/xxxxxxxx"
+     *
+     * 送信先メールアドレスはFormspree側で設定します。
+     */
+    const formspreeEndpoint = "";
+
+    /* ---------- Recruitment Display ---------- */
 
     function updateRecruitmentDisplay() {
         const trialOpen = document.getElementById("trialOpen");
@@ -22,21 +38,175 @@ document.addEventListener("DOMContentLoaded", () => {
         const memberOpen = document.getElementById("memberOpen");
         const memberClosed = document.getElementById("memberClosed");
 
+        const guidelines = document.getElementById("recruitmentGuidelines");
+
+        const applicationArea = document.getElementById("applicationArea");
+        const applicationUnavailable = document.getElementById("applicationUnavailable");
+
+        // 活動体験
         if (trialOpen && trialClosed) {
             trialOpen.hidden = !recruitmentSettings.trialOpen;
             trialClosed.hidden = recruitmentSettings.trialOpen;
         }
 
+        // メンバー募集
         if (memberOpen && memberClosed) {
             memberOpen.hidden = !recruitmentSettings.memberRecruiting;
             memberClosed.hidden = recruitmentSettings.memberRecruiting;
+        }
+
+        // 募集要項
+        if (guidelines) {
+            guidelines.hidden = !recruitmentSettings.guidelinesVisible;
+        }
+
+        // 応募できる募集があるか
+        const isRecruiting =
+            recruitmentSettings.trialOpen ||
+            recruitmentSettings.memberRecruiting;
+
+        // 応募フォーム全体の表示設定
+        if (applicationArea) {
+            applicationArea.hidden =
+                !recruitmentSettings.applicationFormVisible || !isRecruiting;
+        }
+
+        // 受付停止中の案内
+        if (applicationUnavailable) {
+            applicationUnavailable.hidden =
+                !recruitmentSettings.applicationFormVisible || isRecruiting;
+        }
+
+        updateApplicationOptions();
+    }
+
+    /* ---------- Application Options ---------- */
+
+    function updateApplicationOptions() {
+        const applicationType = document.getElementById("applicationType");
+
+        if (!applicationType) return;
+
+        const trialOption = applicationType.querySelector(
+            'option[value="活動体験の申し込み"]'
+        );
+
+        const memberOption = applicationType.querySelector(
+            'option[value="メンバー募集について"]'
+        );
+
+        if (trialOption) {
+            trialOption.disabled = !recruitmentSettings.trialOpen;
+        }
+
+        if (memberOption) {
+            memberOption.disabled = !recruitmentSettings.memberRecruiting;
         }
     }
 
     updateRecruitmentDisplay();
 
 
-    /* ---------- Mobile Navigation ---------- */
+    /* ========================================
+       Application Form
+    ======================================== */
+
+    const applicationForm = document.getElementById("applicationForm");
+    const formStatus = document.getElementById("formStatus");
+    const formSubmit = applicationForm
+        ? applicationForm.querySelector('button[type="submit"]')
+        : null;
+
+    if (applicationForm) {
+
+        // Formspreeの送信先を設定
+        if (formspreeEndpoint.trim() !== "") {
+            applicationForm.action = formspreeEndpoint;
+        }
+
+        applicationForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const isRecruiting =
+                recruitmentSettings.trialOpen ||
+                recruitmentSettings.memberRecruiting;
+
+            // フォームの表示設定確認
+            if (!recruitmentSettings.applicationFormVisible) {
+                if (formStatus) {
+                    formStatus.textContent =
+                        "現在、応募フォームは利用できません。";
+                }
+                return;
+            }
+
+            // 募集状況確認
+            if (!isRecruiting) {
+                if (formStatus) {
+                    formStatus.textContent =
+                        "現在、応募受付を休止しています。";
+                }
+                return;
+            }
+
+            // 送信先未設定
+            if (formspreeEndpoint.trim() === "") {
+                if (formStatus) {
+                    formStatus.textContent =
+                        "メール送信の設定が完了していません。お電話にてお問い合わせください。";
+                }
+                return;
+            }
+
+            // 送信中表示
+            if (formSubmit) {
+                formSubmit.disabled = true;
+                formSubmit.textContent = "送信しています...";
+            }
+
+            if (formStatus) {
+                formStatus.textContent = "";
+            }
+
+            try {
+                const response = await fetch(formspreeEndpoint, {
+                    method: "POST",
+                    body: new FormData(applicationForm),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("送信に失敗しました。");
+                }
+
+                applicationForm.reset();
+
+                if (formStatus) {
+                    formStatus.textContent =
+                        "お問い合わせを送信しました。ありがとうございます。";
+                }
+
+            } catch (error) {
+                if (formStatus) {
+                    formStatus.textContent =
+                        "送信できませんでした。時間をおいて再度お試しください。";
+                }
+
+            } finally {
+                if (formSubmit) {
+                    formSubmit.disabled = false;
+                    formSubmit.textContent = "送信内容を確認して送信";
+                }
+            }
+        });
+    }
+
+
+    /* ========================================
+       Mobile Navigation
+    ======================================== */
 
     const menuToggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
@@ -63,7 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (menuToggle && nav) {
         menuToggle.addEventListener("click", () => {
-            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            const isOpen =
+                menuToggle.getAttribute("aria-expanded") === "true";
 
             if (isOpen) {
                 closeMenu();
@@ -99,7 +270,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ---------- Smooth Scroll ---------- */
+    /* ========================================
+       Smooth Scroll
+    ======================================== */
 
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -129,7 +302,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ---------- Header Scroll Effect ---------- */
+    /* ========================================
+       Header Scroll Effect
+    ======================================== */
 
     const header = document.querySelector(".header");
 
@@ -150,7 +325,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ---------- Back To Top ---------- */
+    /* ========================================
+       Back To Top
+    ======================================== */
 
     const backToTop = document.getElementById("backToTop");
 
@@ -184,11 +361,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ---------- Current Year ---------- */
+    /* ========================================
+       Current Year
+    ======================================== */
 
     const currentYear = document.getElementById("currentYear");
 
     if (currentYear) {
         currentYear.textContent = new Date().getFullYear();
     }
+
 });

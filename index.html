@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,7 +18,6 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
     <a class="skip-link" href="#main">本文へスキップ</a>
@@ -243,6 +241,7 @@
                 </div>
 
                 <div class="recruitment-list">
+                    <!-- 活動体験 -->
                     <div class="recruitment-group">
                         <div class="recruitment-heading">
                             <span class="recruitment-icon">♪</span>
@@ -255,7 +254,7 @@
                         <div id="trialOpen" class="recruitment-box recruitment-open" hidden>
                             <span class="status status-open">受付中</span>
                             <p>活動体験を受け付けています。</p>
-                            <a href="#contact" class="text-link">お問い合わせはこちら</a>
+                            <a href="#application" class="text-link">体験を申し込む</a>
                         </div>
 
                         <div id="trialClosed" class="recruitment-box recruitment-closed" hidden>
@@ -266,6 +265,7 @@
 
                     <div class="recruitment-divider"></div>
 
+                    <!-- メンバー募集 -->
                     <div class="recruitment-group">
                         <div class="recruitment-heading">
                             <span class="recruitment-icon">♫</span>
@@ -278,13 +278,162 @@
                         <div id="memberOpen" class="recruitment-box recruitment-open" hidden>
                             <span class="status status-open">募集中</span>
                             <p>新しいメンバーを募集しています。</p>
-                            <a href="#contact" class="text-link">お問い合わせはこちら</a>
+                            <a href="#application" class="text-link">入会について問い合わせる</a>
                         </div>
 
                         <div id="memberClosed" class="recruitment-box recruitment-closed" hidden>
                             <span class="status status-closed">募集休止中</span>
                             <p>現在、メンバー募集を休止しています。</p>
                         </div>
+                    </div>
+
+                    <!-- 募集要項 -->
+                    <div class="recruitment-divider"></div>
+
+                    <div class="recruitment-guidelines" id="recruitmentGuidelines" hidden>
+                        <p class="recruitment-eyebrow">RECRUITMENT GUIDELINES</p>
+                        <h3>募集要項</h3>
+                        <p class="guidelines-intro">
+                            Buddy's Jazz Choriでは、一緒に音楽を楽しむ仲間をお待ちしています。
+                            ジャズやコーラスに興味のある方は、ぜひお気軽にお問い合わせください。
+                        </p>
+
+                        <dl class="guidelines-list">
+                            <div class="guidelines-item">
+                                <dt>募集内容</dt>
+                                <dd>ジャズコーラスの活動に参加してくださるメンバー</dd>
+                            </div>
+                            <div class="guidelines-item">
+                                <dt>経験について</dt>
+                                <dd>経験の有無など、気になることはお問い合わせください。</dd>
+                            </div>
+                            <div class="guidelines-item">
+                                <dt>活動場所・日時</dt>
+                                <dd>詳しい活動場所や日時については、お問い合わせ時にご案内いたします。</dd>
+                            </div>
+                            <div class="guidelines-item">
+                                <dt>会費・費用</dt>
+                                <dd>費用については、事前にお問い合わせください。</dd>
+                            </div>
+                            <div class="guidelines-item">
+                                <dt>体験について</dt>
+                                <dd>活動体験をご希望の方は、下記フォームからお申し込みください。</dd>
+                            </div>
+                        </dl>
+
+                        <p class="guidelines-note">
+                            ※募集状況や活動内容の詳細は、時期によって異なる場合があります。
+                        </p>
+                    </div>
+
+                    <!-- 応募フォーム -->
+                    <div class="recruitment-divider"></div>
+
+                    <div class="application-area" id="applicationArea" hidden>
+                        <div class="application-heading">
+                            <p class="recruitment-eyebrow">APPLICATION FORM</p>
+                            <h3>応募・お問い合わせフォーム</h3>
+                            <p>
+                                活動体験やメンバー募集について、こちらのフォームからお問い合わせいただけます。
+                                必要事項をご入力のうえ、送信してください。
+                            </p>
+                        </div>
+
+                        <form
+                            id="applicationForm"
+                            class="application-form"
+                            action=""
+                            method="POST"
+                        >
+                            <div class="form-group">
+                                <label for="applicationType">お問い合わせ内容 <span class="required">必須</span></label>
+                                <select id="applicationType" name="お問い合わせ内容" required>
+                                    <option value="">選択してください</option>
+                                    <option value="活動体験の申し込み">活動体験の申し込み</option>
+                                    <option value="メンバー募集について">メンバー募集について</option>
+                                    <option value="その他のお問い合わせ">その他のお問い合わせ</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicantName">お名前 <span class="required">必須</span></label>
+                                <input
+                                    type="text"
+                                    id="applicantName"
+                                    name="お名前"
+                                    placeholder="例：山田 花子"
+                                    autocomplete="name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicantEmail">メールアドレス <span class="required">必須</span></label>
+                                <input
+                                    type="email"
+                                    id="applicantEmail"
+                                    name="メールアドレス"
+                                    placeholder="例：example@example.com"
+                                    autocomplete="email"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicantPhone">電話番号</label>
+                                <input
+                                    type="tel"
+                                    id="applicantPhone"
+                                    name="電話番号"
+                                    placeholder="例：090-1234-5678"
+                                    autocomplete="tel"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferredDate">体験希望日</label>
+                                <input
+                                    type="text"
+                                    id="preferredDate"
+                                    name="体験希望日"
+                                    placeholder="ご希望の日程があればご記入ください"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicantMessage">お問い合わせ内容・メッセージ</label>
+                                <textarea
+                                    id="applicantMessage"
+                                    name="メッセージ"
+                                    rows="6"
+                                    placeholder="ご質問やご希望などをご自由にご記入ください。"
+                                ></textarea>
+                            </div>
+
+                            <div class="form-consent">
+                                <label>
+                                    <input type="checkbox" name="個人情報の取り扱いへの同意" value="同意する" required>
+                                    <span>入力した情報をお問い合わせへの回答に利用することに同意します。</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="button button-gold form-submit">
+                                送信内容を確認して送信
+                            </button>
+
+                            <p class="form-notice">
+                                ※送信後、担当者よりご連絡いたします。
+                            </p>
+
+                            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+
+                    <div id="applicationUnavailable" class="application-unavailable" hidden>
+                        <p>
+                            現在、活動体験およびメンバー募集の受付を休止しています。
+                            募集再開までお待ちください。
+                        </p>
                     </div>
                 </div>
             </div>
@@ -301,7 +450,7 @@
 
                 <p class="contact-message">
                     活動体験やメンバー募集、活動についてのお問い合わせは<br class="desktop-only">
-                    お電話にてお願いいたします。
+                    お電話または応募フォームにてお願いいたします。
                 </p>
 
                 <div class="contact-card">
@@ -335,6 +484,6 @@
         <span>↑</span>
     </button>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
